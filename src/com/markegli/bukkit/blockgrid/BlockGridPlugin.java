@@ -9,7 +9,7 @@ public class BlockGridPlugin extends JavaPlugin {
 	@Override
 	public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
 		if (id != null && !id.isEmpty()) {
-			String[] arguments = id.split("[:. \\t]+");
+			String[] arguments = id.split("[:., \\t]+");
 			int size = arguments[0].matches("[0-9]+") ? Integer.parseInt(arguments[0]) : 256;
 			if (size <= 0) size = 256;
 			
