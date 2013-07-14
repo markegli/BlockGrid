@@ -29,7 +29,7 @@ public class WorldStyles {
 	
 	public static WorldStyles get(World.Environment style) {
 		if (!map.containsKey(style))
-			throw new Error("SkyGrid can only generate The Overworld and The Nether");
+			return map.get(World.Environment.NORMAL);
 		return map.get(style);
 	}
 	

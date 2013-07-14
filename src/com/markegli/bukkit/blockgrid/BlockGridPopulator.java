@@ -23,9 +23,16 @@ public class BlockGridPopulator extends BlockPopulator {
 	private RandomBlockSeries rnd = null;
 	private static RandomSeries slt = new RandomSeries(27);
 	private final int size;
+	private final boolean eggs;
 	
 	public BlockGridPopulator(int size) {
 		this.size = size;
+		this.eggs = true;
+	}
+	
+	public BlockGridPopulator(int size, boolean eggs) {
+		this.size = size;
+		this.eggs = eggs;
 	}
 
 	@Override
@@ -90,19 +97,19 @@ public class BlockGridPopulator extends BlockPopulator {
 		if (random.nextDouble() < 0.7)
 			set.add(itemInRange(318, 350, random)); //food/tools
 		
-		if (random.nextDouble() < 0.3)
+		if (eggs && random.nextDouble() < 0.3)
 			set.add(damageInRange(383, 50, 52, random)); //spawn eggs
 		
-		if (random.nextDouble() < 0.9)
+		if (eggs && random.nextDouble() < 0.9)
 			set.add(damageInRange(383, 54, 62, random)); //spawn eggs
 		
-		if (random.nextDouble() < 0.4)
+		if (eggs && random.nextDouble() < 0.4)
 			set.add(damageInRange(383, 92, 96, random)); //spawn eggs
 		
-		if (random.nextDouble() < 0.1)
+		if (eggs && random.nextDouble() < 0.1)
 			set.add(new ItemStack(383, 1, (short) 98)); //ocelot spawn egg
 		
-		if (random.nextDouble() < 0.1)
+		if (eggs && random.nextDouble() < 0.1)
 			set.add(new ItemStack(383, 1, (short) 120)); //villager spawn egg
 		
 		if (random.nextDouble() < 0.7)

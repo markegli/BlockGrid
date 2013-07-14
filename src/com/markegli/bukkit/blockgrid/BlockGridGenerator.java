@@ -11,6 +11,7 @@ import org.bukkit.generator.ChunkGenerator;
 
 public class BlockGridGenerator extends ChunkGenerator {
 	private final int size;
+	private final byte blocktype;
 	
 	public BlockGridGenerator() {
 		this(256);
@@ -18,6 +19,12 @@ public class BlockGridGenerator extends ChunkGenerator {
 	
 	public BlockGridGenerator(int size) {
 		this.size = size;
+		this.blocktype = -1;
+	}
+	
+	public BlockGridGenerator(int size, byte blocktype) {
+		this.size = size;
+		this.blocktype = blocktype;
 	}
 	
 	@Override
@@ -43,7 +50,7 @@ public class BlockGridGenerator extends ChunkGenerator {
 						}
 						b = t == 81 || t == 83;
 						
-						blockid = p.getBlock(random, y == 0 && ys == 0, b);
+						blockid = blocktype > 0 ? blocktype : p.getBlock(random, y == 0 && ys == 0, b);
 						
 						if(blockid == 6 || blockid == 31 || blockid == 32 || blockid == 37 ||
 								blockid == 38 || blockid == 39 || blockid == 40 || blockid == 83) {
@@ -85,7 +92,7 @@ public class BlockGridGenerator extends ChunkGenerator {
 	@Override
 	public List<BlockPopulator> getDefaultPopulators(World world) {
 		List<BlockPopulator> list = new ArrayList<BlockPopulator>(1);
-		list.add(new BlockGridPopulator(size));
+		if (blocktype <= 0) list.add(new BlockGridPopulator(size));
 		return list;
 	}
 	

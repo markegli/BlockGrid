@@ -8,19 +8,20 @@ public class BlockGridPlugin extends JavaPlugin {
 	
 	@Override
 	public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
-		if (id != null && !id.isEmpty()) try {
-			int size = 256;
-			size = Integer.parseInt(id);
+		if (id != null && !id.isEmpty()) {
+			String[] arguments = id.split("[:. \\t]+");
+			int size = arguments[0].matches("[0-9]+") ? Integer.parseInt(arguments[0]) : 256;
 			if (size <= 0) size = 256;
-			return new BlockGridGenerator(size);
-		} catch (NumberFormatException e) {}
+			
+			byte blocktype = arguments.length > 1 && arguments[1].matches("[0-9]+") ? Byte.parseByte(arguments[1]) : -1;
+			
+			return new BlockGridGenerator(size, blocktype);
+		}
 		return new BlockGridGenerator();
 	}
 	
 	public static int maxHeight(World world, int size) {
-		if (world.getMaxHeight() < size)
-			return world.getMaxHeight();
-		else return size;
+		return Math.min(world.getMaxHeight(), size);
 	}
 	
 }
