@@ -1,4 +1,4 @@
-package com.LRFLEW.bukkit.skygrid.rseries;
+package com.markegli.bukkit.blockgrid.rseries;
 
 import java.util.Random;
 

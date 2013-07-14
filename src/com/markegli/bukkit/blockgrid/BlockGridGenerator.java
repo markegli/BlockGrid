@@ -1,4 +1,4 @@
-package com.LRFLEW.bukkit.skygrid;
+package com.markegli.bukkit.blockgrid;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +9,14 @@ import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
 
-public class SkyGridGenerator extends ChunkGenerator {
+public class BlockGridGenerator extends ChunkGenerator {
 	private final int size;
 	
-	public SkyGridGenerator() {
+	public BlockGridGenerator() {
 		this(256);
 	}
 	
-	public SkyGridGenerator(int size) {
+	public BlockGridGenerator(int size) {
 		this.size = size;
 	}
 	
@@ -24,9 +24,9 @@ public class SkyGridGenerator extends ChunkGenerator {
 	public byte[][] generateBlockSections(World world, Random random, int chunkx, int chunkz, BiomeGrid biomes) {
 		
 		byte blockid;
-		BlockProbobility p = WorldStyles.get(world.getEnvironment()).p;
+		BlockProbability p = WorldStyles.get(world.getEnvironment()).p;
 		
-		int vsegs = SkyGridPlugin.maxHeight(world, size) / 16;
+		int vsegs = BlockGridPlugin.maxHeight(world, size) / 16;
 		byte[][] chunk = new byte[vsegs][];
 		boolean b;
 		byte t;
@@ -85,13 +85,13 @@ public class SkyGridGenerator extends ChunkGenerator {
 	@Override
 	public List<BlockPopulator> getDefaultPopulators(World world) {
 		List<BlockPopulator> list = new ArrayList<BlockPopulator>(1);
-		list.add(new SkyGridPopulator(size));
+		list.add(new BlockGridPopulator(size));
 		return list;
 	}
 	
 	@Override
 	public Location getFixedSpawnLocation(World world, Random random) {
-		return new Location(world, 0.5, (SkyGridPlugin.maxHeight(world, size) * 0.75) - 4, 0.5);
+		return new Location(world, 0.5, (BlockGridPlugin.maxHeight(world, size) * 0.75) - 4, 0.5);
 	}
 	
 }

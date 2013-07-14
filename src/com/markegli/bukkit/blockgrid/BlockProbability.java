@@ -1,9 +1,9 @@
-package com.LRFLEW.bukkit.skygrid;
+package com.markegli.bukkit.blockgrid;
 
 import java.util.Random;
 import java.util.TreeMap;
 
-public class BlockProbobility {
+public class BlockProbability {
 	
 	TreeMap<Integer, Byte> p = new TreeMap<Integer, Byte>();
 	int total = 0;

@@ -1,4 +1,4 @@
-package com.LRFLEW.bukkit.skygrid;
+package com.markegli.bukkit.blockgrid;
 
 import java.util.HashSet;
 import java.util.List;
@@ -16,15 +16,15 @@ import org.bukkit.generator.BlockPopulator;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import com.LRFLEW.bukkit.skygrid.rseries.RandomBlockSeries;
-import com.LRFLEW.bukkit.skygrid.rseries.RandomSeries;
+import com.markegli.bukkit.blockgrid.rseries.RandomBlockSeries;
+import com.markegli.bukkit.blockgrid.rseries.RandomSeries;
 
-public class SkyGridPopulator extends BlockPopulator {
+public class BlockGridPopulator extends BlockPopulator {
 	private RandomBlockSeries rnd = null;
 	private static RandomSeries slt = new RandomSeries(27);
 	private final int size;
 	
-	public SkyGridPopulator(int size) {
+	public BlockGridPopulator(int size) {
 		this.size = size;
 	}
 
@@ -42,7 +42,7 @@ public class SkyGridPopulator extends BlockPopulator {
 		}
 		rnd.reset();
 		if (chunk.getX() == 0 && chunk.getZ() == 0) {
-			int sy = (int) (SkyGridPlugin.maxHeight(world, size) * 0.75) - 4;
+			int sy = (int) (BlockGridPlugin.maxHeight(world, size) * 0.75) - 4;
 			
 			chunk.getBlock(0, sy, 0).setTypeId(1); //Set Spawn to Stone
 			chunk.getBlock(0, sy + 1, 0).setTypeId(0);

@@ -1,4 +1,4 @@
-package com.LRFLEW.bukkit.skygrid;
+package com.markegli.bukkit.blockgrid;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,10 +14,10 @@ public class WorldStyles {
 	private static final Map<World.Environment, WorldStyles> map = 
 			new HashMap<World.Environment, WorldStyles>(); 
 	
-	public final BlockProbobility p;
+	public final BlockProbability p;
 	public final List<EntityType> spawns;
 	
-	private WorldStyles(BlockProbobility prob, List<EntityType> spwn) {
+	private WorldStyles(BlockProbability prob, List<EntityType> spwn) {
 		p = prob;
 		spawns = spwn;
 	}
@@ -33,8 +33,8 @@ public class WorldStyles {
 		return map.get(style);
 	}
 	
-	private static BlockProbobility normalP() {
-		BlockProbobility p = new BlockProbobility();
+	private static BlockProbability normalP() {
+		BlockProbability p = new BlockProbability();
 		p.addBlock(1, 120);  //stone
 		p.addBlock(2, 80);   //grass
 		p.addBlock(3, 20);   //dirt
@@ -79,8 +79,8 @@ public class WorldStyles {
 		return p;
 	}
 	
-	private static BlockProbobility netherP() {
-		BlockProbobility p = new BlockProbobility();
+	private static BlockProbability netherP() {
+		BlockProbability p = new BlockProbability();
 		p.addBlock(11, 50);  //still lava
 		p.addBlock(13, 30);  //gravel
 		//p.addBlock(52, 2);   //mob spawner
@@ -125,7 +125,7 @@ public class WorldStyles {
 	
 	public static double getSProb(World world, int size, int it) {
 		int x = get(world.getEnvironment()).p.total;
-		int y = 4 * SkyGridPlugin.maxHeight(world, size);
+		int y = 4 * BlockGridPlugin.maxHeight(world, size);
 		int n = (world.getEnvironment() == Environment.NETHER ? 3 : 2);
 		x += n;
 		return 1 - Math.pow((double) (x-n) / x, y - it);
@@ -137,8 +137,9 @@ public class WorldStyles {
 			return random.nextDouble() < 0.5;
 		case NETHER:
 			return random.nextDouble() < (1/3);
+		default:
+			return false;
 		}
-		return false;
 	}
 	
 }

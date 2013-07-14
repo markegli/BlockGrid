@@ -1,4 +1,4 @@
-package com.LRFLEW.bukkit.skygrid.rseries;
+package com.markegli.bukkit.blockgrid.rseries;
 
 import org.bukkit.Chunk;
 import org.bukkit.block.Block;

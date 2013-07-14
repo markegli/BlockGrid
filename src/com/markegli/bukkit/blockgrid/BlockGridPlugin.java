@@ -1,10 +1,10 @@
-package com.LRFLEW.bukkit.skygrid;
+package com.markegli.bukkit.blockgrid;
 
 import org.bukkit.World;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class SkyGridPlugin extends JavaPlugin {
+public class BlockGridPlugin extends JavaPlugin {
 	
 	@Override
 	public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
@@ -12,9 +12,9 @@ public class SkyGridPlugin extends JavaPlugin {
 			int size = 256;
 			size = Integer.parseInt(id);
 			if (size <= 0) size = 256;
-			return new SkyGridGenerator(size);
+			return new BlockGridGenerator(size);
 		} catch (NumberFormatException e) {}
-		return new SkyGridGenerator();
+		return new BlockGridGenerator();
 	}
 	
 	public static int maxHeight(World world, int size) {

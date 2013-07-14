@@ -1,4 +1,4 @@
-package com.LRFLEW.bukkit.skygrid.rseries;
+package com.markegli.bukkit.blockgrid.rseries;
 
 import java.util.Random;
 
@@ -6,7 +6,7 @@ import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
-import com.LRFLEW.bukkit.skygrid.SkyGridPlugin;
+import com.markegli.bukkit.blockgrid.BlockGridPlugin;
 
 public class RandomBlockSeries {
 	private GridBlockAbstract[] reset;
@@ -15,7 +15,7 @@ public class RandomBlockSeries {
 	public final int height;
 	
 	public RandomBlockSeries (World world, int size) {
-		int t = SkyGridPlugin.maxHeight(world, size);
+		int t = BlockGridPlugin.maxHeight(world, size);
 		t -= t % 16;
 		height = t;
 		
