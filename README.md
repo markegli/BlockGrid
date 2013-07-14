@@ -1,7 +1,7 @@
 BlockGrid
 =========
 
-**BlockGrid is currently under development and is not ready for use**
+**BlockGrid is currently under development and is not ready for use.**
 
 BlockGrid is a bukkit world generator, forked from [LRFLEW/SkyGrid](https://github.com/LRFLEW/SkyGrid).
 It is based on the original sethbling SkyGrid script.
