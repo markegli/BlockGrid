@@ -16,10 +16,10 @@ Or you can use [Multiverse](https://github.com/Multiverse/Multiverse-Core/wiki/C
 Parameters
 ----------
 
-The one benefit this fork has over LRFLEW’s original is that you can now specify a [block ID][]
+The one benefit this fork has over LRFLEWâ€™s original is that you can now specify a [block ID][]
 to force your SkyWorld to populate with only one block type. You may find this useful for creative builds.
 
-    generator: BlockGrid:&lt;height>,&lt;block_id>
+    generator: BlockGrid:<height>,<block_id>
 
 [SkyGrid]: https://github.com/LRFLEW/SkyGrid "Original SkyGrid Plugin"
 [block ID]: http://www.minecraftwiki.net/wiki/Data_values#Block_IDs "List of Block IDs"
