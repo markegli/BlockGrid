@@ -1,8 +1,8 @@
 BlockGrid
 =========
 
-BlockGrid is a bukkit world generator, forked from [LRFLEW/SkyGrid][SkyGrid].
-It is based on the original sethbling SkyGrid script.
+BlockGrid is a bukkit world generator, forked from [LRFLEW/SkyGrid][SkyGrid plugin].
+It is based on the original SethBling [SkyGrid script][].
 
 As with all custom generators, you can use this generator for your default world.
 Just add the following lines to your bukkit.yml:
@@ -21,5 +21,6 @@ to force your SkyWorld to populate with only one block type. You may find this u
 
     generator: BlockGrid:<height>,<block_id>
 
-[SkyGrid]: https://github.com/LRFLEW/SkyGrid "Original SkyGrid Plugin"
+[SkyGrid plugin]: https://github.com/LRFLEW/SkyGrid "Original SkyGrid Plugin"
+[SkyGrid script]: https://github.com/SethBling/SkyGrid "Original SkyGrid Script"
 [block ID]: http://www.minecraftwiki.net/wiki/Data_values#Block_IDs "List of Block IDs"
